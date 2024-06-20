@@ -1,0 +1,34 @@
+import pandas as pd
+
+# Load the CSV file
+df = pd.read_csv(r"C:\Users\Maulik\Downloads\task2.csv")
+
+# Filter data: selecting rows where 'age' is greater than 30
+filtered_df = df[df['age'] > 30]
+
+# Handle missing values: fill missing values with 0
+df_filled = df.fillna(0)
+
+# Drop rows with missing values
+df_dropped = df.dropna()
+
+# Drop columns with missing values
+df_dropped_columns = df.dropna(axis=1)
+
+# Calculate summary statistics
+summary_stats = df.describe()
+
+# Calculate mean, median, and standard deviation for the 'age' column
+mean_age = df['age'].mean()
+median_age = df['age'].median()
+std_age = df['age'].std()
+
+# Print results
+print("Filtered DataFrame:\n", filtered_df)
+print("\nDataFrame with Missing Values Filled:\n", df_filled)
+print("\nDataFrame with Rows with Missing Values Dropped:\n", df_dropped)
+print("\nDataFrame with Columns with Missing Values Dropped:\n", df_dropped_columns)
+print("\nSummary Statistics:\n", summary_stats)
+print("\nMean Age:", mean_age)
+print("\nMedian Age:", median_age)
+print("\nStandard Deviation of Age:", std_age)
